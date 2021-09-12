@@ -61,6 +61,8 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   connect(ui->rbAll, SIGNAL(clicked()), this, SLOT(rbAll_clicked()));
   connect(ui->rbBasic, SIGNAL(clicked()), this, SLOT(rbBasic_clicked()));
   connect(ui->rbAdvance, SIGNAL(clicked()), this, SLOT(rbAdvance_clicked()));
+  connect(ui->rbEffective, SIGNAL(clicked()), this,
+          SLOT(rbEffective_clicked()));
   connect(ui->rbSystem, SIGNAL(clicked()), this, SLOT(rbSystem_clicked()));
   connect(ui->rbNetwork, SIGNAL(clicked()), this, SLOT(rbNetwork_clicked()));
   connect(ui->rbDataStru, SIGNAL(clicked()), this, SLOT(rbDataStru_clicked()));
@@ -79,7 +81,12 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   isEditable = false;
 }
 
-QFormTable::~QFormTable() { delete ui; }
+QFormTable::~QFormTable() {
+  tableView_save();
+  delete theSelection;
+  delete tabModel;
+  delete ui;
+}
 
 void QFormTable::rbAll_clicked() { tabModel->setFilter(""); }
 
@@ -89,7 +96,7 @@ void QFormTable::rbAdvance_clicked() {
   tabModel->setFilter("QuestionTypeId=2");
 }
 
-void QFormTable::on_rbEffective_clicked() {
+void QFormTable::rbEffective_clicked() {
   tabModel->setFilter("QuestionTypeId=3");
 }
 
@@ -138,11 +145,6 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
 
     ui->preview->setUrl(QUrl("qrc:/index.html"));
     m_content.setText(curRec.value("Answer").toString());
-  }
-}
-
-void QFormTable::on_tableView_doubleClicked(const QModelIndex &index) {
-  if (isEditable) {
   }
 }
 

@@ -46,6 +46,7 @@ class QFormTable : public QMainWindow {
   void rbAll_clicked();
   void rbBasic_clicked();
   void rbAdvance_clicked();
+  void rbEffective_clicked();
   void rbSystem_clicked();
   void rbNetwork_clicked();
   void rbDataStru_clicked();
@@ -54,9 +55,6 @@ class QFormTable : public QMainWindow {
   void rbDesignmode_clicked();
   void rbOS_clicked();
   void on_tableView_clicked(const QModelIndex &index);
-  void on_tableView_doubleClicked(const QModelIndex &index);
-
-  void on_rbEffective_clicked();
 
  private:
   Ui::QFormTable *ui;
@@ -64,7 +62,6 @@ class QFormTable : public QMainWindow {
   QSqlDatabase DB;
   QSqlTableModel *tabModel;
   QDataWidgetMapper *dataMappler;
-  QStandardItemModel *theModel;       //数据模型
   QItemSelectionModel *theSelection;  // Item选择模型
   Document m_content;
   bool isEditable;
