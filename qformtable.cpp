@@ -51,6 +51,11 @@ void QFormTable::openTable() {
   ui->tableView->resizeColumnsToContents();
 
   ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+  get_fieldnames();
+  isEditable = false;
+  ui->cbSort->setCurrentIndex(tabModel->fieldIndex("FAQId"));
+  ui->rbInc->setChecked(true);
 }
 
 QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
@@ -72,13 +77,10 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   connect(ui->rbDesignmode, SIGNAL(clicked()), this,
           SLOT(rbDesignmode_clicked()));
   connect(ui->rbOS, SIGNAL(clicked()), this, SLOT(rbOS_clicked()));
-  connect(ui->tableView, SIGNAL(doubleClicked(const QModelIndex &index)), this,
-          SLOT(tableView_doubleClicked(const QModelIndex &index)));
 
   if (false == openDatabase(dbfile)) return;
 
   openTable();
-  isEditable = false;
 }
 
 QFormTable::~QFormTable() {
@@ -86,6 +88,12 @@ QFormTable::~QFormTable() {
   delete theSelection;
   delete tabModel;
   delete ui;
+}
+
+void QFormTable::get_fieldnames() {
+  QSqlRecord emptyRec = tabModel->record();
+  for (int i = 0; i < emptyRec.count(); ++i)
+    ui->cbSort->addItem(emptyRec.fieldName(i));
 }
 
 void QFormTable::rbAll_clicked() { tabModel->setFilter(""); }
@@ -184,3 +192,21 @@ bool QFormTable::tableView_save() {
 }
 
 void QFormTable::tableView_cancel() { tabModel->revertAll(); }
+
+void QFormTable::on_rbInc_clicked() {
+  tabModel->setSort(ui->cbSort->currentIndex(), Qt::AscendingOrder);
+  tabModel->select();
+}
+
+void QFormTable::on_rbDec_clicked() {
+  tabModel->setSort(ui->cbSort->currentIndex(), Qt::DescendingOrder);
+  tabModel->select();
+}
+
+void QFormTable::on_cbSort_currentIndexChanged(int index) {
+  if (ui->rbInc->isChecked())
+    tabModel->setSort(index, Qt::AscendingOrder);
+  else
+    tabModel->setSort(index, Qt::DescendingOrder);
+  tabModel->select();
+}

@@ -15,26 +15,10 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="1" column="0">
-     <widget class="QTableView" name="tableView">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>420</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
+    <item row="0" column="0" colspan="3">
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string/>
+       <string>筛选</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
@@ -52,17 +36,10 @@
        <property name="spacing">
         <number>9</number>
        </property>
-       <item row="0" column="5">
-        <widget class="QRadioButton" name="rbSystem">
+       <item row="0" column="4">
+        <widget class="QRadioButton" name="rbEffective">
          <property name="text">
-          <string>4.系统编程</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="9">
-        <widget class="QRadioButton" name="rbDatabase">
-         <property name="text">
-          <string>8.数据库</string>
+          <string>3.Effective</string>
          </property>
         </widget>
        </item>
@@ -83,10 +60,24 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="1">
+        <widget class="QRadioButton" name="rbBasic">
+         <property name="text">
+          <string>1.C/C++基础</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="8">
         <widget class="QRadioButton" name="rbAlgorithm">
          <property name="text">
           <string>7.算法</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="9">
+        <widget class="QRadioButton" name="rbDatabase">
+         <property name="text">
+          <string>8.数据库</string>
          </property>
         </widget>
        </item>
@@ -97,10 +88,10 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QRadioButton" name="rbBasic">
+       <item row="0" column="5">
+        <widget class="QRadioButton" name="rbSystem">
          <property name="text">
-          <string>1.C/C++基础</string>
+          <string>4.系统编程</string>
          </property>
         </widget>
        </item>
@@ -111,13 +102,6 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="10">
-        <widget class="QRadioButton" name="rbDesignmode">
-         <property name="text">
-          <string>9.设计模式</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="7">
         <widget class="QRadioButton" name="rbDataStru">
          <property name="text">
@@ -125,17 +109,59 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="4">
-        <widget class="QRadioButton" name="rbEffective">
+       <item row="0" column="10">
+        <widget class="QRadioButton" name="rbDesignmode">
          <property name="text">
-          <string>3.Effective</string>
+          <string>9.设计模式</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="0" column="3">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>排序</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QComboBox" name="cbSort"/>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbInc">
+         <property name="text">
+          <string>升序</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbDec">
+         <property name="text">
+          <string>降序</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTableView" name="tableView">
+      <property name="minimumSize">
+       <size>
+        <width>450</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>450</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="3">
      <widget class="QWebEngineView" name="preview" native="true">
       <property name="minimumSize">
        <size>

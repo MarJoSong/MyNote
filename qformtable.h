@@ -33,6 +33,7 @@ class QFormTable : public QMainWindow {
   QFormTable(QWidget *parent = nullptr, const QString &dbfile = "D:\\faq.db");
   ~QFormTable();
 
+  void get_fieldnames();
   void tableView_readonly();
   void tableView_readwrite();
   void tableView_append();
@@ -55,6 +56,12 @@ class QFormTable : public QMainWindow {
   void rbDesignmode_clicked();
   void rbOS_clicked();
   void on_tableView_clicked(const QModelIndex &index);
+
+  void on_rbInc_clicked();
+
+  void on_rbDec_clicked();
+
+  void on_cbSort_currentIndexChanged(int index);
 
  private:
   Ui::QFormTable *ui;

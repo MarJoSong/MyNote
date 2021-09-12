@@ -62,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent)
   // statusBar()->addWidget(m_oneWords); //靠左
   statusBar()->addPermanentWidget(m_oneWords);  //靠右
   m_timer.start(10000);
+
+  formTable = nullptr;
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -128,4 +130,6 @@ void MainWindow::on_editCancel_triggered() {
   ui->editCancel->setEnabled(false);
 }
 
-void MainWindow::on_actionClose_triggered() { delete formTable; }
+void MainWindow::on_actionClose_triggered() {
+  if (formTable != nullptr) delete formTable;
+}
