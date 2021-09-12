@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QFormTable</class>
+ <widget class="QMainWindow" name="QFormTable">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1120</width>
+    <height>524</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="1" column="0">
+     <widget class="QTableView" name="tableView">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>420</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>9</number>
+       </property>
+       <property name="spacing">
+        <number>9</number>
+       </property>
+       <item row="0" column="5">
+        <widget class="QRadioButton" name="rbSystem">
+         <property name="text">
+          <string>4.系统编程</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="9">
+        <widget class="QRadioButton" name="rbDatabase">
+         <property name="text">
+          <string>8.数据库</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="11">
+        <widget class="QRadioButton" name="rbOS">
+         <property name="text">
+          <string>10.操作系统</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="rbAll">
+         <property name="text">
+          <string>全选</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="8">
+        <widget class="QRadioButton" name="rbAlgorithm">
+         <property name="text">
+          <string>7.算法</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QRadioButton" name="rbNetwork">
+         <property name="text">
+          <string>5.网络编程</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QRadioButton" name="rbBasic">
+         <property name="text">
+          <string>1.C/C++基础</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QRadioButton" name="rbAdvance">
+         <property name="text">
+          <string>2.STL/GE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="10">
+        <widget class="QRadioButton" name="rbDesignmode">
+         <property name="text">
+          <string>9.设计模式</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7">
+        <widget class="QRadioButton" name="rbDataStru">
+         <property name="text">
+          <string>6.数据结构</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QRadioButton" name="rbEffective">
+         <property name="text">
+          <string>3.Effective</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QWebEngineView" name="preview" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header>qwebengineview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
