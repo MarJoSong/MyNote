@@ -87,6 +87,8 @@ void MainWindow::fileImp_triggered() {
   ui->tabWidget->setCurrentIndex(cur);
   ui->tabWidget->setVisible(true);
   ui->editModity->setEnabled(true);
+
+  ui->fileImp->setEnabled(false);
 }
 
 void MainWindow::on_editModity_triggered() {

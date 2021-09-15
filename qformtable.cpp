@@ -92,8 +92,9 @@ QFormTable::~QFormTable() {
 
 void QFormTable::get_fieldnames() {
   QSqlRecord emptyRec = tabModel->record();
-  for (int i = 0; i < emptyRec.count(); ++i)
-    ui->cbSort->addItem(emptyRec.fieldName(i));
+  for (int i = 0; i < emptyRec.count() - 1; ++i)
+    ui->cbSort->addItem(tabModel->headerData(i, Qt::Horizontal).toString());
+  // ui->cbSort->addItem(emptyRec.fieldName(i));
 }
 
 void QFormTable::rbAll_clicked() { tabModel->setFilter(""); }
@@ -204,9 +205,9 @@ void QFormTable::on_rbDec_clicked() {
 }
 
 void QFormTable::on_cbSort_currentIndexChanged(int index) {
-  if (ui->rbInc->isChecked())
-    tabModel->setSort(index, Qt::AscendingOrder);
-  else
+  if (ui->rbDec->isChecked())
     tabModel->setSort(index, Qt::DescendingOrder);
+  else
+    tabModel->setSort(index, Qt::AscendingOrder);
   tabModel->select();
 }
