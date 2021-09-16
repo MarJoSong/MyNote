@@ -71,6 +71,8 @@ class QFormTable : public QMainWindow {
   QSqlTableModel *tabModel;
   QDataWidgetMapper *dataMappler;
   QItemSelectionModel *theSelection;  // Item选择模型
+  PreviewPage *page;
+  QWebChannel *channel;
   Document m_content;
   bool isEditable;
 };

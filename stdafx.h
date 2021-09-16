@@ -5,4 +5,6 @@
 #pragma execution_character_set("utf-8")
 #endif
 
+#include <QSharedPointer>
+
 #endif  // STDAFX_H

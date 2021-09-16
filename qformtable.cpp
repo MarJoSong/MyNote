@@ -81,6 +81,18 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   if (false == openDatabase(dbfile)) return;
 
   openTable();
+
+  //设置web channel
+  ui->preview->setContextMenuPolicy(Qt::NoContextMenu);
+  page = new PreviewPage(this);
+  ui->preview->setPage(page);
+  channel = new QWebChannel(this);
+  m_content.setText("# MAKEDOWN");
+
+  channel->registerObject(QStringLiteral("content"), &m_content);
+  page->setWebChannel(channel);
+
+  ui->preview->setUrl(QUrl("qrc:/index.html"));
 }
 
 QFormTable::~QFormTable() {
@@ -140,19 +152,6 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
     QMessageBox::information(this, "信息", "尚未为此问题放置答案",
                              QMessageBox::Ok, QMessageBox::NoButton);
   } else {
-    ui->preview->setContextMenuPolicy(Qt::NoContextMenu);
-
-    QString str = curRec.value("Answer").toString();
-    m_content.setText(str);
-
-    PreviewPage *page = new PreviewPage(this);
-    ui->preview->setPage(page);
-
-    QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QStringLiteral("content"), &m_content);
-    page->setWebChannel(channel);
-
-    ui->preview->setUrl(QUrl("qrc:/index.html"));
     m_content.setText(curRec.value("Answer").toString());
   }
 }
