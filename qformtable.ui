@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1120</width>
+    <width>1176</width>
     <height>524</height>
    </rect>
   </property>
@@ -119,6 +119,16 @@
       </layout>
      </widget>
     </item>
+    <item row="1" column="1" colspan="3">
+     <widget class="QWebEngineView" name="preview" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="3">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
@@ -157,16 +167,6 @@
        <size>
         <width>450</width>
         <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1" colspan="3">
-     <widget class="QWebEngineView" name="preview" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
        </size>
       </property>
      </widget>

@@ -31,7 +31,7 @@ class QFormTable : public QMainWindow {
 
  public:
   QFormTable(QWidget *parent = nullptr,
-             const QString &dbfile = "D:git\\Road2Offer\\faq.db");
+             const QString &dbfile = "D:\\git\\Road2Offer\\faq.db");
   ~QFormTable();
 
   void get_fieldnames();
