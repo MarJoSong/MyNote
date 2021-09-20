@@ -72,10 +72,14 @@ void MainWindow::fileImp_triggered() {
   QString aFile = QFileDialog::getOpenFileName(this, "选择数据库文件", "",
                                                "SQLite数据库(*.db *.db3)");
   if (aFile.isEmpty()) {
+
+    return;
+    /*
     QMessageBox::warning(this, "提示", "未选择数据库，\n将使用默认数据库",
                          QMessageBox::Ok, QMessageBox::NoButton);
 
     formTable = new QFormTable(this);
+    */
   } else {
     formTable = new QFormTable(this, aFile);
   }
