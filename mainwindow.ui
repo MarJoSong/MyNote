@@ -30,20 +30,20 @@
      <x>0</x>
      <y>0</y>
      <width>823</width>
-     <height>23</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
      <string>编辑</string>
     </property>
+    <addaction name="editModity"/>
+    <addaction name="editReadOnly"/>
+    <addaction name="separator"/>
     <addaction name="editAdd"/>
     <addaction name="editDel"/>
     <addaction name="editSave"/>
     <addaction name="editCancel"/>
-    <addaction name="separator"/>
-    <addaction name="editModity"/>
-    <addaction name="editReadOnly"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -73,6 +73,10 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/add.png</normaloff>:/images/add.png</iconset>
+   </property>
    <property name="text">
     <string>新增</string>
    </property>
@@ -80,6 +84,10 @@
   <action name="editDel">
    <property name="enabled">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
    </property>
    <property name="text">
     <string>删除</string>
@@ -102,8 +110,8 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/images/open.png</normaloff>:/images/open.png</iconset>
    </property>
    <property name="text">
     <string>导入</string>
@@ -115,6 +123,10 @@
    </property>
    <property name="enabled">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
    </property>
    <property name="text">
     <string>修改</string>
@@ -132,6 +144,10 @@
    </property>
    <property name="enabled">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/read.png</normaloff>:/images/read.png</iconset>
    </property>
    <property name="text">
     <string>只读</string>
@@ -156,6 +172,10 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
+   </property>
    <property name="text">
     <string>保存</string>
    </property>
@@ -167,6 +187,10 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
+   </property>
    <property name="text">
     <string>取消</string>
    </property>
@@ -175,6 +199,10 @@
    </property>
   </action>
   <action name="actionClose">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
+   </property>
    <property name="text">
     <string>关闭</string>
    </property>
@@ -183,6 +211,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

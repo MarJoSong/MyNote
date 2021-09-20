@@ -187,6 +187,17 @@ void QFormTable::tableView_append() {
                     dtime.toString("yyyy-MM-dd hh:mm:ss.zzz"));
 }
 
+bool QFormTable::tableView_delete() {
+  QModelIndex curIndex = theSelection->currentIndex();
+  if (curIndex.isValid()) {
+    tabModel->removeRow(curIndex.row());
+  } else {
+    return false;
+  }
+
+  return theSelection->currentIndex().isValid();
+}
+
 bool QFormTable::tableView_save() {
   bool res = tabModel->submitAll();
   if (!res) {

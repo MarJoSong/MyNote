@@ -55,7 +55,9 @@ class MainWindow : public QMainWindow {
 
   void on_actionClose_triggered();
 
- protected:
+  void on_editDel_triggered();
+
+protected:
   void GetOneWords();
 
  public:

@@ -120,6 +120,7 @@ void MainWindow::on_editAdd_triggered() {
   formTable->tableView_append();
   ui->editSave->setEnabled(true);
   ui->editCancel->setEnabled(true);
+  ui->editDel->setEnabled(true);
 }
 
 void MainWindow::on_editSave_triggered() {
@@ -139,3 +140,8 @@ void MainWindow::on_editCancel_triggered() {
 void MainWindow::on_actionClose_triggered() {
   if (formTable != nullptr) delete formTable;
 }
+
+void MainWindow::on_editDel_triggered() {
+   ui->editDel->setEnabled(formTable->tableView_delete());
+}
+

@@ -39,6 +39,7 @@ class QFormTable : public QMainWindow {
   void tableView_readonly();
   void tableView_readwrite();
   void tableView_append();
+  bool tableView_delete();
   bool tableView_save();
   void tableView_cancel();
 

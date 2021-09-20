@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/new.png</file>
+        <file>images/add.png</file>
+        <file>images/save.png</file>
+        <file>images/close.png</file>
+        <file>images/delete.png</file>
+        <file>images/open.png</file>
+        <file>images/cancel.png</file>
+        <file>images/edit.png</file>
+        <file>images/read.png</file>
     </qresource>
 </RCC>
