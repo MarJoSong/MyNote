@@ -13,6 +13,7 @@
 #include <QSqlTableModel>
 #include <QStandardItemModel>
 #include <QWebChannel>
+#include <QWebEngineView>
 
 #include "document.h"
 #include "previewpage.h"
@@ -74,6 +75,7 @@ class QFormTable : public QMainWindow {
   PreviewPage *page;
   QWebChannel *channel;
   Document m_content;
+  QWebEngineView *extrepage;
   bool isEditable;
 };
 

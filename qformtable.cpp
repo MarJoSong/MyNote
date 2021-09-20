@@ -87,7 +87,7 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   page = new PreviewPage(this);
   ui->preview->setPage(page);
   channel = new QWebChannel(this);
-  m_content.setText("# MAKEDOWN");
+  m_content.setText("# MAKEDOWN or WebPage");
 
   channel->registerObject(QStringLiteral("content"), &m_content);
   page->setWebChannel(channel);
@@ -152,7 +152,14 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
     QMessageBox::information(this, "信息", "尚未为此问题放置答案",
                              QMessageBox::Ok, QMessageBox::NoButton);
   } else {
-    m_content.setText(curRec.value("Answer").toString());
+    if (curRec.value("Answer").toString().startsWith("http")) {
+        ui->preview->setPage(nullptr);
+        ui->preview->setUrl(QUrl(curRec.value("Answer").toString()));
+    } else {
+        qDebug() << "0";
+        ui->preview->setPage(page);
+        m_content.setText(curRec.value("Answer").toString());
+    }
   }
 }
 
