@@ -43,6 +43,8 @@ void QFormTable::openTable() {
 
   ui->tableView->setModel(tabModel);
   ui->tableView->setSelectionModel(theSelection);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("QuestionTypeId"), true);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("CreateTime"), true);
   ui->tableView->setColumnHidden(tabModel->fieldIndex("Answer"), true);
 
   ui->tableView->setSelectionBehavior(QAbstractItemView::SelectItems);
@@ -153,8 +155,8 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
                              QMessageBox::Ok, QMessageBox::NoButton);
   } else {
     if (curRec.value("Answer").toString().startsWith("http")) {
-        ui->preview->setPage(nullptr);
-        ui->preview->setUrl(QUrl(curRec.value("Answer").toString()));
+      ui->preview->setPage(nullptr);
+      ui->preview->setUrl(QUrl(curRec.value("Answer").toString()));
     } else {
         ui->preview->setPage(page);
         m_content.setText(curRec.value("Answer").toString());
@@ -164,12 +166,16 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
 
 void QFormTable::tableView_readonly() {
   ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("QuestionTypeId"), true);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("CreateTime"), true);
   ui->tableView->setColumnHidden(tabModel->fieldIndex("Answer"), true);
   isEditable = false;
 }
 
 void QFormTable::tableView_readwrite() {
   ui->tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("QuestionTypeId"), false);
+  ui->tableView->setColumnHidden(tabModel->fieldIndex("CreateTime"), false);
   ui->tableView->setColumnHidden(tabModel->fieldIndex("Answer"), false);
   isEditable = true;
 }
