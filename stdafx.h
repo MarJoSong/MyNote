@@ -6,5 +6,6 @@
 #endif
 
 #include <QSharedPointer>
+#include <QWindow>
 
 #endif  // STDAFX_H

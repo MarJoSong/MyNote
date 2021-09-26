@@ -92,7 +92,7 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   channel->registerObject(QStringLiteral("content"), &m_content);
   page->setWebChannel(channel);
 
-  ui->preview->setUrl(QUrl("qrc:/index.html"));
+  ui->preview->setUrl(QUrl("qrc:/markdown/index.html"));
 }
 
 QFormTable::~QFormTable() {
@@ -156,7 +156,6 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
         ui->preview->setPage(nullptr);
         ui->preview->setUrl(QUrl(curRec.value("Answer").toString()));
     } else {
-        qDebug() << "0";
         ui->preview->setPage(page);
         m_content.setText(curRec.value("Answer").toString());
     }

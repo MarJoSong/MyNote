@@ -8,5 +8,11 @@
         <file>images/cancel.png</file>
         <file>images/edit.png</file>
         <file>images/read.png</file>
+        <file>markdown/3rdparty/MARKDOWN-LICENSE.txt</file>
+        <file>markdown/3rdparty/markdown.css</file>
+        <file>markdown/3rdparty/MARKED-LICENSE.txt</file>
+        <file>markdown/3rdparty/marked.js</file>
+        <file>markdown/3rdparty/qt_attribution.json</file>
+        <file>markdown/index.html</file>
     </qresource>
 </RCC>
