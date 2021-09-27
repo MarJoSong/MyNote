@@ -85,7 +85,7 @@ QFormTable::QFormTable(QWidget *parent, const QString &dbfile)
   openTable();
 
   //设置web channel
-  ui->preview->setContextMenuPolicy(Qt::NoContextMenu);
+  ui->preview->setContextMenuPolicy(Qt::DefaultContextMenu);
   page = new PreviewPage(this);
   ui->preview->setPage(page);
   channel = new QWebChannel(this);
@@ -151,15 +151,15 @@ void QFormTable::on_tableView_clicked(const QModelIndex &index) {
   int curRecNo = index.row();
   QSqlRecord curRec = tabModel->record(curRecNo);
   if (curRec.isNull("Answer") && isEditable == false) {
-    QMessageBox::information(this, "信息", "尚未为此问题放置答案",
-                             QMessageBox::Ok, QMessageBox::NoButton);
+    ui->preview->setPage(page);
+    m_content.setText("# 未放置答案");
   } else {
     if (curRec.value("Answer").toString().startsWith("http")) {
       ui->preview->setPage(nullptr);
       ui->preview->setUrl(QUrl(curRec.value("Answer").toString()));
     } else {
-        ui->preview->setPage(page);
-        m_content.setText(curRec.value("Answer").toString());
+      ui->preview->setPage(page);
+      m_content.setText(curRec.value("Answer").toString());
     }
   }
 }
